@@ -1,33 +1,109 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 body {
-    max-width: 480px;
+    max-width: 560px;
     margin: 0 auto;
     padding: 0 30px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 16px;
     line-height: 1.4em;
     color: hsl(0,0%,12%);
-    background-color: hsl(0,0%,98%);
+    background-color: hsl(0,0%,96%);
 }
-article, footer {
-    padding: 0.5rem 0.8rem;
-    margin: 0.5rem 0;
-    border-radius: 4px;
-    background-color: white;
+body:last-child { 
+    margin-bottom: 30px;
 }
-time { 
-    color: hsl(0,0%,35%);
+h1,h2,h3,p,time {
+    line-height: 1.4em;
+    margin: 0.6em 0;
 }
 a {
-    color: hsl(200,70%,50%);
+    text-decoration: none;
+    color: hsl(0,0%,12%);
+    position: relative;
+    transition: color 0.2s ease;
 }
-footer { 
-    float: right;
+a::after {
+    content: "";
+    width: 110%;
+    height: 0.2em;
+    display: block;
+    position: absolute;
+    background: hsla(200,90%,50%,50%);
+    border-radius: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+    transition: height 0.2s ease, top 0.2s ease;
+    top: 1.2em;
 }
-footer a {
+a:hover, a:focus, a:active {
+    color: white;
+}
+a:hover::after, a:focus::after, a:active::after {
+    top: -0.2em;
+    height: 1.6em;
+}
+header {
+    text-align: center;
+}
+.blurb {
+    position: relative;
     display: block;
 }
-.anchor {
-    float: right;
+time {
+    display: block;
+    color: hsl(0,0%,60%);
+}
+.blurb time {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 1rem 1rem 1rem 0;
+    width: 50%;
+    text-align: right;
+}
+.blurb time::after {
+    content: "";
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-radius: 6px;
+    background: white;
+    border: 2px solid hsl(0,0%,90%);
+    position: absolute;
+    right:0;
+    top: 50%;
+    transform: translate(60%,-50%);
+}
+.blurb .details {
+    padding: 2rem 1rem;
+    margin-left: 50%;
+    border-left: 2px solid hsl(0,0%,90%);
+}
+.blurb:last-of-type::after { 
+    content:"The Beginning...";
+    position: absolute;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    border: 2px solid hsl(0,0%,90%);
+    border-radius: 5px;
+    padding: 0.4rem 0.6rem;
+    background: white;
+    color: hsl(0,0%,12%)
+}
+.blog-post {
+    background: white;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    border: 2px solid hsl(0,0%,90%);
+}
+.blog-post h2, .blog-post time {
+    text-align: center;
 }
 
 @media(prefers-color-scheme: dark) {
@@ -35,10 +111,26 @@ footer a {
         background: hsl(0,0%,20%);
         color: hsl(0,0%,80%);
     }
-    article, footer {
+    a {
+        color: hsl(0,0%,80%);
+    }
+    .blog-post {
         background-color: hsl(0,0%,18%);
+        border: 2px solid hsl(0,0%,25%);
     }
     time { 
         color: hsl(0,0%,70%);
+    }
+    .blurb .details {
+        border-left: 2px solid hsl(0,0%,40%);
+    }
+    .blurb time::after {
+        background: hsl(0,0%,20%);
+        border: 2px solid hsl(0,0%,40%);
+    }
+    .blurb:last-of-type::after { 
+        color: hsl(0,0%,80%);
+        background-color: hsl(0,0%,18%);
+        border: 2px solid hsl(0,0%,40%);
     }
 }
