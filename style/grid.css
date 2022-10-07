@@ -1,0 +1,79 @@
+:root {
+    --container-width: 700px;
+    --container-width-shrunk: 92%;
+    --image-column-max-width: 250px;
+}
+
+/* flex styling for header */
+header {
+    width: 100%;
+    display: flex;
+}
+header .index {
+    display: flex;
+    align-items: center;
+}
+
+/* flex styling for article */
+article {
+    width: 100%;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+}
+
+/* flex styling for landing blurbs */
+.index-main {
+    display: flex;
+    max-width: var(--container-width);
+    margin: 0 auto;
+}
+.images {
+    margin-left: auto;
+    width: 40%;
+    max-width: var(--image-column-max-width);
+}
+.images img { 
+    width: 100%;
+}
+
+/* flex styling for gallery */
+.gallery {
+    margin: 0 auto;
+    position: relative;
+}
+.gallery img {
+    width: 100%;
+}
+
+/* flex styling for footnote area */
+#fn-area {
+    width: 100%;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+}
+
+/* handle main content */
+#header-ct, article > *, #fn-area-content, .index-main {
+    width: var(--container-width);
+    margin: 0 auto;
+}
+
+/* handle bleed */
+.bleed { width: 100%; }
+.bleed-1200 { width: 1200px; }
+.bleed-900, .gallery { width: 900px; }
+
+@media (max-width: 1200px) {
+    .bleed-1200 { width: 100%; }
+}
+@media (max-width: 900px) {
+    .bleed-900 { width: 100%; }
+    .gallery { width: 92%; }
+}
+@media (max-width: 700px) {
+    #header-ct, article > *, #fn-area-content, .index-main {
+        width: var(--container-width-shrunk);
+    }
+}

@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap');
+:root {
+    --font-gray: hsl(200,2%,50%);
+    --light-yellow: hsl(44, 100%, 91%);
+    --link-under: inset 0 -0.1rem black;
+    --serif: Baskerville, Times New Roman, Times, Serif;
+    --sans-serif: Tacoma, Helvetica Neue, Helvetica, Arial, Sans-Serif;
+
+    font: 22px/1.4 var(--serif);
+}
+
+body, 
+body * {
+    padding:            unset;
+    margin:             unset;
+    text-decoration:    unset;
+    color:              unset;
+    font:               unset;
+    word-wrap:          break-word;
+    box-sizing:         border-box;
+}
+
+h1, h2, h3 {
+    font-weight: bold; 
+    font-family: var(--sans-serif);
+}
+h1 { font-size: 2em; }
+h2 { font-size: 1.3em; }
+.title {
+    text-transform: uppercase;
+    font-family: 'Tenor Sans';
+    letter-spacing: -0.08rem;
+}
+time {
+    color: var(--font-gray); 
+    font-size: 0.8em;
+    font-family: var(--sans-serif);
+}
+i { font-style: italic; }
+a {
+ /*   box-shadow: var(--link-under);*/
+    color: red;
+}
+
+header a {
+    color: black;
+}
+.links a:focus, .links a:hover {
+    box-shadow: var(--link-under);
+}
+.superscript {
+    font-size: 0.7em;
+}
+
+#header-ct {
+    display: flex;
+    align-items: center;
+}
+.logo-prof {
+    height: 0.8in;
+    width: 0.8in;
+    padding: 5px;
+}
+.links { 
+    margin-left: auto;
+}
+.links a:not(:last-child) {
+    margin-right: 1em;
+}
+.index-main {
+    padding: 0 0 1em 0;
+}
+
+.blurb {
+    display: block;
+}
+.blurb:not(:last-child) {
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid black;
+}
+.images img {
+    filter: contrast(110%) grayscale(100%);
+    transition: 0.2s ease;
+}
+/*********** ARTICLE STYLING ************/
+article .splash {
+    text-align: center;
+}
+article > p, #footnotes > p {
+    margin: 0 0 1rem 0;
+}
+#footnotes .footnote:nth-child(1){
+    border-top: 1px solid black;
+    padding-top: 1rem;
+}
+article h2 {
+    margin: 0 0 1rem 0;
+}
+.splash-img {
+    margin: 1rem 0;
+}
+.superscript {
+    vertical-align: super;
+}
+.quot {
+    background: var(--light-yellow);
+    padding: 10px 15px;
+}
+/********* FOOTNOTE STYLING **********/
+#fn-area-content { 
+    position: relative;
+    padding: 1em 0 3em 0;
+}
+#fn-area {
+    transition: 0.4s ease;
+    position:fixed;
+    bottom: 0;
+    background: white;
+    border-top: 1px solid black;
+    transform: translateY(100%);
+}
+.close { 
+    display: block;
+    position: absolute;
+    background: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid black;
+    top: 0;
+    right: 0;
+    transition: 0.2s ease;
+    transform: translateY(-50%);
+}
+.close:hover, .close:focus {
+    transform: translateY(-50%) rotate(180deg);
+}
+.close::after, .close::before { 
+    content: '';
+    display: block;
+    position: absolute;
+    width: 72%;
+    height: 18%;
+    top: 50%;
+    left: 50%;
+    background: black;
+}
+.close::after {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+.close::before {
+    transform: translate(-50%, -50%) rotate(-45deg);
+44
+}
+/********** GALLERY STYLING *************/
+.gallery a img {
+    opacity: 0;
+    transition: opacity 2s ease;
+}
+.gallery a img.loaded {
+    opacity: 100;
+}
